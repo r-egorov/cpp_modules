@@ -4,7 +4,7 @@ void	Interface::run(void)
 {
 	std::cout << "Welcome to `Awesome PhoneBook v1.0`" << std::endl
 		<< "Please, enter a command below." << std::endl;
-	while ((std::cout << "Enter a command: ") 
+	while ((std::cout << FRESET(FYELLOW("Enter a command: ")))
 			&& (std::getline(std::cin, input)))
 	{
 		std::transform(
@@ -48,7 +48,9 @@ void	Interface::add(void)
 		&Contact::set_darkest_secret,
 	};
 
-	std::cout << "Adding new contact! Please provide the necessary info." << std::endl;
+	std::cout
+		<< FRESET(FYELLOW("Adding new contact! Please provide the necessary info."))
+		<< std::endl;
 
 	for (int i = 0; i < 5; i++)
 	{
@@ -59,8 +61,8 @@ void	Interface::add(void)
 
 	this->phonebook.add(contact);
 
-	std::cout << "Successfully added the contact \""
-		<< contact.get_first_name() << " " <<  contact.get_last_name() << "\"!"
+	std::cout << FGREEN("Successfully added the contact \"")
+		<< contact.get_first_name() << " " <<  contact.get_last_name() << FRESET("\"!")
 		<< std::endl;
 }
 
@@ -70,7 +72,9 @@ void	Interface::search(void)
 
 	if (count == 0)
 	{
-		std::cout << "Phonebook is empty." << std::endl;
+		std::cout
+			<< FRESET(FRED("Phonebook is empty.")) 
+			<< std::endl;
 		return ;
 	}
 
@@ -91,7 +95,8 @@ void	Interface::search(void)
 	std::cout << "+-+----------+----------+----------+" << std::endl;
 
 	std::cout
-		<< "Enter the contact's index for the full information" << std::endl;
+		<< FRESET(FYELLOW("Enter the contact's index for the full information"))
+		<< std::endl;
 
 	int		flag;
 	int		index;
@@ -99,7 +104,7 @@ void	Interface::search(void)
 	flag = 1;
 	while (flag)
 	{
-		std::cout << "Enter an index: ";
+		std::cout << FRESET(FYELLOW("Enter an index: "));
 		std::cin >> index;
 
 		if (std::cin.eof())
@@ -112,7 +117,9 @@ void	Interface::search(void)
 			|| ((this->phonebook.get_count() < 8)
 				&& (index > this->phonebook.get_count() - 1)))
 		{
-			std::cout << "Invalid index. Try again." << std::endl;
+			std::cout
+				<< FRESET(FRED("Invalid index. Try again."))
+				<< std::endl;
 
 		}
 		else
