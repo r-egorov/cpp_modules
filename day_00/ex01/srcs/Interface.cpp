@@ -4,7 +4,8 @@ void	Interface::run(void)
 {
 	std::cout << "Welcome to `Awesome PhoneBook v1.0`" << std::endl
 		<< "Please, enter a command below." << std::endl;
-	while (std::getline(std::cin, input))
+	while ((std::cout << "Enter a command: ") 
+			&& (std::getline(std::cin, input)))
 	{
 		std::transform(
 				input.begin(), input.end(), input.begin(), tolower);
@@ -22,16 +23,110 @@ void	Interface::run(void)
 
 void	Interface::stop(void)
 {
-	std::cout << "Thank you for choosing `Awesome PhoneBook v1.0`" << std::endl
+	std::cout << "\nThank you for choosing `Awesome PhoneBook v1.0`" << std::endl
 		<< "Bye-bye!" << std::endl;
 }
 
 void	Interface::add(void)
 {
-	std::cout << "COMMAND ADD TRIGGERED" << std::endl;
+	Contact	contact;
+	static std::string	print_iter[5] =
+	{
+		"First name: ",
+		"Last name: ",
+		"Nickname: ",
+		"Phone number: ",
+		"Darkest secret: ",
+	};
+	typedef void 		(Contact::*setter)(std::string);
+	static setter 		methods_iter[5] =
+	{
+		&Contact::set_first_name,
+		&Contact::set_last_name,
+		&Contact::set_nickname,
+		&Contact::set_phone_number,
+		&Contact::set_darkest_secret,
+	};
+
+	std::cout << "Adding new contact! Please provide the necessary info." << std::endl;
+
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << print_iter[i];
+		std::getline(std::cin, this->input);
+		(contact.*methods_iter[i])(input);
+	}
+
+	this->phonebook.add(contact);
+
+	std::cout << "Successfully added the contact \""
+		<< contact.get_first_name() << " " <<  contact.get_last_name() << "\"!"
+		<< std::endl;
 }
 
 void	Interface::search(void)
 {
-	std::cout << "COMMAND SEARCH TRIGGERED" << std::endl;
+	int	count = this->phonebook.get_count();
+
+	if (count == 0)
+	{
+		std::cout << "Phonebook is empty." << std::endl;
+		return ;
+	}
+
+	if (count > 8)
+		count = 8;
+
+	std::cout
+		<< "+----------------------------------+\n"
+		<< "|           MY PHONEBOOK           |\n" 
+		<< "+-+----------+----------+----------+"
+		<< std::endl;
+
+	for (int i = 0; i < count ; i++)
+	{
+		std::cout << "|" << i << "|";
+		this->phonebook.search(i).entry_print();
+	}
+	std::cout << "+-+----------+----------+----------+" << std::endl;
+
+	std::cout
+		<< "Enter the contact's index for the full information" << std::endl;
+
+	int		flag;
+	int		index;
+
+	flag = 1;
+	while (flag)
+	{
+		std::cout << "Enter an index: ";
+		std::cin >> index;
+
+		if (std::cin.eof())
+		{
+			std::cerr << "ERROR unexpected EOF\n";
+        	exit(1);
+		}
+		else if ((std::cin.fail())
+			|| (index >= 8)
+			|| ((this->phonebook.get_count() < 8)
+				&& (index > this->phonebook.get_count() - 1)))
+		{
+			std::cout << "Invalid index. Try again." << std::endl;
+
+		}
+		else
+		{
+			std::cout
+				<< "+----------------------------------+\n"
+				<< "|           CONTACT CARD           |\n" 
+				<< "+----------------------------------+"
+				<< std::endl;
+			this->phonebook.search(index).full_print();
+			std::cout << "+----------------------------------+" << std::endl;
+			flag = 0;
+		}
+		std::cin.clear();
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	}
 }

@@ -1,10 +1,18 @@
 #include "Phonebook_class.hpp"
 
+Phonebook::Phonebook(void)
+{
+	this->index = 0;
+	this->count = 0;
+}
+
 void	Phonebook::add(Contact contact)
 {
 	if (this->index < 8)
 	{
 		this->contacts[this->index] = contact;
+		this->index += 1;
+		this->count += 1;
 	}
 	else
 	{
@@ -13,7 +21,12 @@ void	Phonebook::add(Contact contact)
 	}
 }
 
-Contact*	Phonebook::search(void)
+int		Phonebook::get_count(void)
 {
-	return (this->contacts);
+	return (this->count);
+}
+
+Contact	Phonebook::search(int i)
+{
+	return (this->contacts[i]);
 }

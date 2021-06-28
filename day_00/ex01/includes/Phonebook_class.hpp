@@ -7,15 +7,15 @@ class Phonebook
 {
 	private:
 		Contact		contacts[8];
+		int			count;
 		int			index;
 
 	public:
-		Phonebook()
-		{
-			this->index = 0;
-		}
+		Phonebook();
+
+		int			get_count(void);
 		void		add(Contact contact);
-		Contact*	search(void);
+		Contact		search(int index);
 };
 
 #endif

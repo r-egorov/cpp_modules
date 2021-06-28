@@ -7,7 +7,7 @@ INCLUDES		=	includes/
 CC				=	clang++
 CFLAGS			=	-Wall -Wextra -Werror
 
-SRCS			=	Phonebook.cpp main.cpp Interface.cpp
+SRCS			=	Phonebook.cpp main.cpp Interface.cpp Contact_class.cpp
 OBJS			=	$(patsubst %.cpp,%.o,$(SRCS))
 
 OBJS			:=	$(addprefix $(OBJSDIR), $(OBJS))
