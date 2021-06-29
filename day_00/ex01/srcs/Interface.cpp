@@ -2,7 +2,7 @@
 
 void	Interface::run(void)
 {
-	std::cout << "Welcome to `Awesome PhoneBook v1.0`" << std::endl
+	std::cout << FRESET(FGREEN("Welcome to `Awesome PhoneBook v1.0`")) << std::endl
 		<< "Please, enter a command below." << std::endl;
 	while ((std::cout << FRESET(FYELLOW("Enter a command: ")))
 			&& (std::getline(std::cin, input)))
@@ -16,7 +16,7 @@ void	Interface::run(void)
 		else if (input == "search")
 			this->search();
 		else
-			std::cout << "Invalid command. Try again." << std::endl;
+			std::cout << FRESET(FRED("Invalid command. Try again.")) << std::endl;
 	}
 	this->stop();
 }
