@@ -1,3 +1,8 @@
 tags
 *.o
 .DS_Store
+megaphone
+phonebook
+account_test
+original_log.txt
+test_log.txt
