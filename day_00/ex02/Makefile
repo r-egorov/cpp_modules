@@ -1,4 +1,4 @@
-NAME			=	test
+NAME			=	account_test
 
 SRCSDIR			=	./
 OBJSDIR			=	objs/
