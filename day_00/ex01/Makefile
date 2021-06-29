@@ -14,6 +14,7 @@ OBJS			:=	$(addprefix $(OBJSDIR), $(OBJS))
 SRCS			:=	$(addprefix $(SRCSDIR), $(SRCS))
 
 $(OBJSDIR)%.o:		$(SRCSDIR)%.cpp
+					@ mkdir -p objs
 					$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 all:				$(NAME)
