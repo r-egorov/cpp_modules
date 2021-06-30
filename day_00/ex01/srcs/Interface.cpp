@@ -113,7 +113,7 @@ void	Interface::search(void)
         	exit(1);
 		}
 		else if ((std::cin.fail())
-			|| (index >= 8)
+			|| (index >= 8) || (index < 0)
 			|| ((this->phonebook.get_count() < 8)
 				&& (index > this->phonebook.get_count() - 1)))
 		{
