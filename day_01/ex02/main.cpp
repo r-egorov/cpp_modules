@@ -9,7 +9,7 @@ int		main(void)
 
 	std::cout << "Printing addresses" << std::endl;
 	std::cout << "&string:\t|" << &string << "|" << std::endl;
-	std::cout << "*stringPTR:\t|" << stringPTR << "|" << std::endl;
+	std::cout << "stringPTR:\t|" << stringPTR << "|" << std::endl;
 	std::cout << "&stringREF:\t|" << &stringREF << "|" << std::endl;
 
 	std::cout << "Printing the value" << std::endl;
