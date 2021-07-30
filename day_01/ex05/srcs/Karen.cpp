@@ -5,6 +5,12 @@ Karen::Karen(void) {}
 
 Karen::~Karen(void) {}
 
+void		Karen::puzzled(void)
+{
+	std::cerr << "I don't understand what you want from me! "
+		<< "Leave me alone!" << std::endl;
+}
+
 void		Karen::debug(void)
 {
 	std::cout << "I love to get extra bacon for my "
@@ -31,37 +37,28 @@ void		Karen::warning(void)
 
 void		Karen::error(void)
 {
-	std::cout << "This is unacceptable, I want to speak to the manager now."
+	std::cerr << "This is unacceptable, I want to speak to the manager now."
 		<< std::endl;
 }
 
 void		Karen::complain(std::string level)
 {
 	typedef void		(Karen::*comment)(void);
-	static comment		comments[4] =
+	static comment		comments[5] =
 	{
+		&Karen::puzzled,
 		&Karen::debug,
 		&Karen::info,
 		&Karen::warning,
 		&Karen::error,
 	};
-	static std::string	levels[4] =
-	{
-		"DEBUG",
-		"INFO",
-		"WARNING",
-		"ERROR",
-	};
 
-	for (int i = 0; i < 4; i++)
-	{
-		if (!level.compare(levels[i]))
-		{
-			(this->*comments[i])();
-			return ;
-		}
-	}
+	int	index;
 
-	std::cerr << "I don't understand what you want from me! "
-		<< "Leave me alone!" << std::endl;
+	index = (!level.compare("DEBUG")) * 1
+		+ (!level.compare("INFO")) * 2
+		+ (!level.compare("WARNING")) * 3
+		+ (!level.compare("ERROR")) * 4;
+
+	(this->*comments[index])();
 }
