@@ -1,11 +1,22 @@
 #include <iostream>
 #include <fstream>
+#include <cctype>
+
+std::string	string_upper(std::string *s)
+{
+	std::string	res = "";
+	for (size_t i = 0; i < s->length(); i++)
+		res = res + (char)std::toupper(s->c_str()[i]);
+	return (res);
+}
 
 int		main(int argc, char **argv)
 {
 	if (argc != 4)
 	{
-		std::cerr << "Usage:\n./replace filename source_string target_string" << std::endl;
+		std::cerr << "Usage:\n"
+			<< "./replace filename source_string target_string"
+			<< std::endl;
 		return (1);
 	}
 
@@ -30,7 +41,8 @@ int		main(int argc, char **argv)
 
 	std::ofstream	output_file;
 
-	output_file.open(file_name + ".REPLACE", std::ios::trunc);
+	output_file.open(string_upper(&file_name) + ".replace",
+			std::ios::trunc);
 	if (!input_file.is_open())
 	{
 		std::cerr << "Error when creating the output file" << std::endl;
@@ -43,7 +55,6 @@ int		main(int argc, char **argv)
 	while(std::getline(input_file, line))
 	{
 		std::size_t		found = 0;
-		std::cout << line << std::endl;
 		while (found != std::string::npos)
 		{
 			found = line.find(source_string, found);
@@ -52,10 +63,7 @@ int		main(int argc, char **argv)
 			{
 				matches += 1;
 				line.erase(found, source_string.length());
-				//std::cout << "AFTER ERASING: " << line << std::endl;
 				line.insert(found, target_string);
-				//std::cout << "AFTER INSERTING: " << line << std::endl;
-				//std::cout << found << std::endl;
 				found += source_string.length();
 			}
 		}
