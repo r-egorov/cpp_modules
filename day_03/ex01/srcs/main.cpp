@@ -44,6 +44,8 @@ int	main(void)
 	as_scav = par_scav;
 	std::cout
 		<< "Thomas's name after assignation is "
-		<< cp_scav.getName()
+		<< as_scav.getName()
+		<< ", his HP = "
+		<< as_scav.getHp()
 		<< std::endl;
 }

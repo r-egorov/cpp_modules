@@ -2,6 +2,9 @@
 
 ScavTrap::ScavTrap(void) : ClapTrap("ScavTrap")
 {
+	this->hp = 100;
+	this->ep = 50;
+	this->atk_dmg = 20;
 	std::cout
 		<< "A default "
 		<< this->type
@@ -11,6 +14,9 @@ ScavTrap::ScavTrap(void) : ClapTrap("ScavTrap")
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
+	this->hp = 100;
+	this->ep = 50;
+	this->atk_dmg = 20;
 	std::cout 
 		<< "A parametrized "
 		<< this->type

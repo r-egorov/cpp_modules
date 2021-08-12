@@ -2,9 +2,9 @@
 
 ClapTrap::ClapTrap(void) : name("Claptrap")
 {
-	this->hp = 100;
-	this->ep = 50;
-	this->atk_dmg = 20;
+	this->hp = 10;
+	this->ep = 10;
+	this->atk_dmg = 0;
 	std::cout 
 		<< "A default "
 		<< this->type
@@ -14,9 +14,9 @@ ClapTrap::ClapTrap(void) : name("Claptrap")
 
 ClapTrap::ClapTrap(std::string name) : name(name)
 {
-	this->hp = 100;
-	this->ep = 50;
-	this->atk_dmg = 20;
+	this->hp = 10;
+	this->ep = 10;
+	this->atk_dmg = 0;
 	std::cout 
 		<< "A parametrized ClapTrap constructor was called "
 		<< "with the name `"
