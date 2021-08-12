@@ -1,15 +1,26 @@
 #include "ClapTrap.hpp"
-#include <iostream>
 
 ClapTrap::ClapTrap(void) : name("Claptrap")
 {
-	std::cout << "A default ClapTrap constructor was called" << std::endl;
+	this->type = "ClapTrap";
+	this->hp = 10;
+	this->ep = 10;
+	this->atk_dmg = 0;
+	std::cout 
+		<< "A default "
+		<< this->type
+		<< " constructor was called"
+		<< std::endl;
 }
 
-ClapTrap::ClapTrap(std::string to_be_name) : name(to_be_name)
+ClapTrap::ClapTrap(std::string name) : name(name)
 {
+	this->type = "ClapTrap";
+	this->hp = 10;
+	this->ep = 10;
+	this->atk_dmg = 0;
 	std::cout 
-		<< "A parametrized ClapTrap constructor was called " 
+		<< "A parametrized ClapTrap constructor was called "
 		<< "with the name `"
 		<< this->name
 		<< "`"
@@ -18,7 +29,9 @@ ClapTrap::ClapTrap(std::string to_be_name) : name(to_be_name)
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
-	std::cout << "A ClapTrap copy constructor was called" << std::endl;
+	std::cout << "A "
+	       << this->type
+	       << " copy constructor was called" << std::endl;
 	this->name = obj.getName();
 	this->ep = obj.getEp();
 	this->hp = obj.getHp();
@@ -27,12 +40,15 @@ ClapTrap::ClapTrap(const ClapTrap &obj)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "A ClapTrap destructor was called" << std::endl;
+	std::cout << "A " << this->type << " destructor was called"
+		<< std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 {
-	std::cout << "A ClapTrap assignation operator was called" << std::endl;
+	std::cout
+		<< "A " << this->type
+		<< " assignation operator was called" << std::endl;
 	this->name = obj.getName();
 	this->ep = obj.getEp();
 	this->hp = obj.getHp();
@@ -63,7 +79,7 @@ unsigned int	ClapTrap::getAtkDmg(void) const
 void		ClapTrap::attack(std::string const &target)
 {
 	std::cout
-		<< "ClapTrap "
+		<< this->type << " "
 		<< this->name
 		<< " attacks "
 		<< target
@@ -77,7 +93,7 @@ void		ClapTrap::takeDamage(unsigned int amount)
 {
 	this->hp -= amount;
 	std::cout
-		<< "ClapTrap "
+		<< this->type << " "
 		<< this->name
 		<< " takes "
 		<< amount
@@ -89,7 +105,7 @@ void		ClapTrap::beRepaired(unsigned int amount)
 {
 	this->hp += amount;
 	std::cout
-		<< "ClapTrap "
+		<< this->type << " "
 		<< this->name
 		<< " repaires! "
 		<< amount

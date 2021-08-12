@@ -2,17 +2,19 @@
 # define CLAPTRAP_HPP
 
 # include <string>
+# include <iostream>
 
 class ClapTrap
 {
 	private:
-		std::string	name;
-		unsigned int	hp = 10;
-		unsigned int	ep = 10;
-		unsigned int	atk_dmg = 0;
+		std::string			type;
+		std::string			name;
+		unsigned int			hp;
+		unsigned int			ep;
+		unsigned int			atk_dmg;
 	public:
 		ClapTrap(void);
-		ClapTrap(std::string to_be_name);
+		ClapTrap(std::string name);
 		~ClapTrap(void);
 		ClapTrap(const ClapTrap &obj);
 		ClapTrap &operator=(const ClapTrap &obj);
