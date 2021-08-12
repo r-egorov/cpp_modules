@@ -13,22 +13,24 @@ OBJS			=	$(patsubst %.cpp,%.o,$(SRCS))
 
 OBJS			:=	$(addprefix $(OBJSDIR), $(OBJS))
 SRCS			:=	$(addprefix $(SRCSDIR), $(SRCS))
-
-$(OBJSDIR)%.o:		$(SRCSDIR)%.cpp
-					@ mkdir -p objs
-					$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLUDES)
+DEPS			=	$(OBJS:%.o=%.d)
 
 all:				$(NAME)
 
 $(NAME):			$(OBJS)
 					$(CC) -o $(NAME) $? -I$(INCLUDES)
 
+-include $(DEPS)
+$(OBJSDIR)%.o:		$(SRCSDIR)%.cpp Makefile
+					@ mkdir -p $(OBJSDIR)
+					$(CC) $(CFLAGS) -MMD -c $< -o $@ -I$(INCLUDES)
 info:
+					echo $(DEPS)
 					echo $(SRCS)
 					echo $(OBJS)
 
 clean:
-					rm -f $(OBJS)
+					rm -rf $(OBJSDIR)
 
 fclean:				clean
 					rm -f $(NAME)
