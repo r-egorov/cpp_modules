@@ -1,5 +1,7 @@
 #include "ScavTrap.hpp"
 
+const std::string	ScavTrap::type = "ScavTrap";
+
 ScavTrap::ScavTrap(void) : ClapTrap("ScavTrap")
 {
 	this->hp = 100;

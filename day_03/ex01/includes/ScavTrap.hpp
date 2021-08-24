@@ -7,7 +7,7 @@
 class	ScavTrap : public ClapTrap
 {
 	private:
-		std::string		type = "ScavTrap";
+		static const std::string		type;
 	public:
 		ScavTrap(void);
 		ScavTrap(std::string to_be_name);
