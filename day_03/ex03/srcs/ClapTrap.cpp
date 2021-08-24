@@ -1,5 +1,7 @@
 #include "ClapTrap.hpp"
 
+const std::string	ClapTrap::type = "ClapTrap";
+
 ClapTrap::ClapTrap(void) : name("Claptrap")
 {
 	this->hp = 10;

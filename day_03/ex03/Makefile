@@ -4,7 +4,7 @@ SRCSDIR			=	srcs/
 OBJSDIR			=	objs/
 
 CC				=	clang++
-CFLAGS			=	-Wall -Wextra -Werror -Wshadow -Wno-shadow
+CFLAGS			=	-Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
 INCLUDES		=	includes/
 

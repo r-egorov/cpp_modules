@@ -7,11 +7,11 @@
 class	ScavTrap : virtual public ClapTrap
 {
 	private:
-		std::string		type = "ScavTrap";
+		static const std::string			type;
 	protected:
-		const static unsigned int	default_hp = 100;
-		const static unsigned int	default_ep = 50;
-		const static unsigned int	default_atk_dmg = 20;
+		const static unsigned int			default_hp = 100;
+		const static unsigned int			default_ep = 50;
+		const static unsigned int			default_atk_dmg = 20;
 	public:
 		ScavTrap(void);
 		ScavTrap(std::string name);

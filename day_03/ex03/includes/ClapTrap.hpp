@@ -7,15 +7,15 @@
 class ClapTrap
 {
 	private:
-		std::string			type = "ClapTrap";
+		static const std::string			type;
 	protected:
-		std::string			name;
-		const static unsigned int	default_hp = 10;
-		const static unsigned int	default_ep = 10;
-		const static unsigned int	default_atk_dmg = 0;
-		unsigned int			hp;
-		unsigned int			ep;
-		unsigned int			atk_dmg;
+		std::string							name;
+		const static unsigned int			default_hp = 10;
+		const static unsigned int			default_ep = 10;
+		const static unsigned int			default_atk_dmg = 0;
+		unsigned int						hp;
+		unsigned int						ep;
+		unsigned int						atk_dmg;
 	public:
 		ClapTrap(void);
 		ClapTrap(std::string name);

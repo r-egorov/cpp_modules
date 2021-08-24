@@ -1,5 +1,7 @@
 #include "FragTrap.hpp"
 
+const std::string	FragTrap::type = "FragTrap";
+
 FragTrap::FragTrap(void) : ClapTrap("FragTrap")
 {
 	this->hp = 100;

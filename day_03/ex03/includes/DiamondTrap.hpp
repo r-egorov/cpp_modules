@@ -8,8 +8,8 @@
 class	DiamondTrap : public ScavTrap, public FragTrap
 {
 	private:
-		std::string		type = "DiamondTrap";
-		std::string		name;
+		static const std::string	type;
+		std::string					name;
 	public:
 		DiamondTrap(void);
 		DiamondTrap(std::string name);

@@ -1,5 +1,7 @@
 #include "DiamondTrap.hpp"
 
+const std::string	DiamondTrap::type = "DiamondTrap";
+
 DiamondTrap::DiamondTrap(void) :
 	ClapTrap("DiamondTrap__clap__name"),
 	ScavTrap("DiamondTrap"),

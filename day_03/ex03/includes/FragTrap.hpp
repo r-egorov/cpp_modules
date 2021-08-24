@@ -7,11 +7,11 @@
 class	FragTrap : virtual public ClapTrap
 {
 	private:
-		std::string		type = "FragTrap";
+		static const std::string			type;
 	protected:
-		const static unsigned int	default_hp = 100;
-		const static unsigned int	default_ep = 100;
-		const static unsigned int	default_atk_dmg = 30;
+		const static unsigned int			default_hp = 100;
+		const static unsigned int			default_ep = 100;
+		const static unsigned int			default_atk_dmg = 30;
 	public:
 		FragTrap(void);
 		FragTrap(std::string name);
