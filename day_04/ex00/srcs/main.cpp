@@ -23,12 +23,20 @@ int	main(void)
 	wr_animal->makeSound();
 	wr_cat->makeSound();
 
+	delete wr_animal;
+	delete wr_cat;
+
 	const Animal	*zoo[3] = {meta, j, i};
 
 	for(int i = 0; i < 3; i++)
 	{
 		std::cout << "Animal type: <" << zoo[i]->getType() << ">" << std::endl;
 		zoo[i]->makeSound();
+	}
+
+	for(int i = 0; i < 3; i++)
+	{
+		delete zoo[i];
 	}
 
 	return (0);
