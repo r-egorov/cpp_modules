@@ -7,7 +7,7 @@
 class	FragTrap : public ClapTrap
 {
 	private:
-		std::string		type = "FragTrap";
+		static const std::string	type;
 	public:
 		FragTrap(void);
 		FragTrap(std::string name);

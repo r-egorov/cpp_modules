@@ -7,12 +7,12 @@
 class ClapTrap
 {
 	private:
-		std::string			type = "ClapTrap";
+		static const std::string	type;
 	protected:
-		std::string			name;
-		unsigned int			hp;
-		unsigned int			ep;
-		unsigned int			atk_dmg;
+		std::string					name;
+		unsigned int				hp;
+		unsigned int				ep;
+		unsigned int				atk_dmg;
 	public:
 		ClapTrap(void);
 		ClapTrap(std::string name);
