@@ -29,6 +29,7 @@ ClapTrap::ClapTrap(std::string name) : name(name)
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
+	this->type = "ClapTrap";
 	std::cout << "A "
 	       << this->type
 	       << " copy constructor was called" << std::endl;
