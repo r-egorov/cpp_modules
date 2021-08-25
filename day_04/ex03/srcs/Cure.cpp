@@ -21,7 +21,7 @@ Cure		*Cure::clone(void) const
 	return (res);
 }
 
-void	Cure::use(void) // FIXME
+void	Cure::use(ICharacter &target)
 {
-	std::cout << "* heals " << "NAME" << "'s wounds *" << std::endl;
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

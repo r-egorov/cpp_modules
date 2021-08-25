@@ -21,7 +21,7 @@ Ice		*Ice::clone(void) const
 	return (res);
 }
 
-void	Ice::use(void) // FIXME
+void	Ice::use(ICharacter &target)
 {
-	std::cout << "* shoots an ice bolt at " << "NAME" << " *" << std::endl;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

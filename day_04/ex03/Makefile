@@ -8,7 +8,7 @@ CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 
 INCLUDES		=	includes/
 
-SRCS			=	AMateria.cpp Ice.cpp Cure.cpp main.cpp
+SRCS			=	AMateria.cpp Ice.cpp Cure.cpp Character.cpp main.cpp
 OBJS			=	$(patsubst %.cpp,%.o,$(SRCS))
 
 OBJS			:=	$(addprefix $(OBJSDIR), $(OBJS))

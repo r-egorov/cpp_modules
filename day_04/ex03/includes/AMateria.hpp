@@ -3,6 +3,9 @@
 
 # include <string>
 # include <iostream>
+# include "ICharacter.hpp"
+
+class ICharacter;
 
 class AMateria
 {
@@ -18,8 +21,7 @@ class AMateria
 
 		std::string const	&getType(void) const;
 		virtual AMateria*	clone(void) const = 0;
-		virtual void		use(void);
-		//virtual void		use(ICharacter &target);
+		virtual void		use(ICharacter &target);
 };
 
 #endif

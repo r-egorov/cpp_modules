@@ -1,32 +1,27 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include "Character.hpp"
 
 int		main(void)
 {
+	std::string	tom_name("Thomas");
+	std::string	andy_name("Thomas");
+
+	Character	*tom = new Character(tom_name);
+	Character	*andy = new Character(andy_name);
+
 	Ice		*ice = new Ice();
 
-	ice->use();
-	std::cout << ice->getType() << std::endl;
+	tom->equip(ice);
+	tom->use(0, *andy);
 
-	Ice		*ice2 = ice->clone();
+	Character	*tom_copy = tom;
 
-	ice2->use();
-	std::cout << ice->getType() << std::endl;
-
-	delete ice;
-	delete ice2;
-	
 	Cure		*cure = new Cure();
 
-	cure->use();
-	std::cout << cure->getType() << std::endl;
+	tom_copy->equip(cure);
+	tom_copy->use(1, *andy);
 
-	Cure		*cure2 = cure->clone();
-
-	cure2->use();
-	std::cout << cure->getType() << std::endl;
-
-	delete cure;
-	delete cure2;
-
+	delete tom;
+	delete andy;
 }

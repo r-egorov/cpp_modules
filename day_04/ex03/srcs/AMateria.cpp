@@ -17,7 +17,10 @@ AMateria			&AMateria::operator=(const AMateria &obj)
 	return (*this);
 }
 
-void				AMateria::use(void) {}
+void				AMateria::use(ICharacter &target)
+{
+	std::cout << "Some materia is used on " << target.getName() << std::endl;
+}
 
 std::string const	&AMateria::getType(void) const
 {
