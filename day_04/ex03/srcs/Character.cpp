@@ -13,7 +13,7 @@ Character::Character(void)
 	this->init();
 }
 
-Character::Character(std::string &name) : name(name)
+Character::Character(std::string name) : name(name)
 {
 	this->init();
 }

@@ -14,7 +14,7 @@ class Character : public ICharacter
 		void				init(void);
 	public:
 		Character(void);
-		Character(std::string &name);
+		Character(std::string name);
 		~Character(void);
 		Character(const Character &obj);
 		Character			&operator=(const Character &obj);
