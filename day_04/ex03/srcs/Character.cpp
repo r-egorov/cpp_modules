@@ -32,7 +32,10 @@ Character::Character(const Character &obj)
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->inv[i])
+		{
 			delete this->inv[i];
+			this->inv[i] = NULL;
+		}
 		if (obj.inv[i])
 			this->inv[i] = obj.inv[i]->clone();
 	}
@@ -47,7 +50,10 @@ Character			&Character::operator=(const Character &obj)
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->inv[i])
+		{
 			delete this->inv[i];
+			this->inv[i] = NULL;
+		}
 		if (obj.inv[i])
 			this->inv[i] = obj.inv[i]->clone();
 	}
@@ -82,5 +88,22 @@ void				Character::use(int idx, ICharacter &target)
 	if (this->inv[idx])
 	{
 		this->inv[idx]->use(target);
+	}
+}
+
+void				Character::show_inv(void)
+{
+	std::cout << "[" << this->getName() << "'s inventory]" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		std::cout << "|" << i << "| ";
+		if (this->inv[i])
+		{
+			std::cout << this->inv[i]->getType() << ";" << std::endl;
+		}
+		else
+		{
+			std::cout << "NULL;" << std::endl;
+		}
 	}
 }
