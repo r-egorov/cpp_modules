@@ -22,20 +22,7 @@ Form::Form(std::string name, int const signGrade, int const execGrade) :
 	isSigned(false),
 	signGrade(validateGrade(signGrade)),
 	execGrade(validateGrade(execGrade))
-{
-	/*
-	if (signGrade < 1 || execGrade < 1)
-	{
-		throw GradeTooHighException();
-	}
-	else if (signGrade > 150 || execGrade > 150)
-	{
-		throw GradeTooLowException();
-	}
-	this->signGrade = signGrade;
-	this->execGrade = execGrade;
-	*/
-}
+{}
 
 Form::Form(Form const &obj) :	name(obj.getName()),
 								isSigned(obj.wasSigned()),
