@@ -64,9 +64,9 @@ void				Bureaucrat::signForm(Form &form)
 			<< " cannot sign " << form
 			<< ", because the bureaucrat's grade is too low."
 			<< std::endl;
+			return ;
 	}
-	std::cout << *this << "signs " << form;
-
+	std::cout << *this << " signs " << form << std::endl;
 }
 
 const char			*Bureaucrat::GradeTooLowException::what(void) const throw()
