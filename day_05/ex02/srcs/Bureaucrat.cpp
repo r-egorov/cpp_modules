@@ -78,6 +78,33 @@ void				Bureaucrat::signForm(Form &form)
 	std::cout << *this << " signs " << form << std::endl;
 }
 
+void				Bureaucrat::executeForm(Form &form)
+{
+	try
+	{
+		form.execute(*this);
+	}
+	catch (Form::NotSignedException &e)
+	{
+		std::cerr
+			<< *this
+			<< " cannot execute " << form
+			<< ", because the form is not signed."
+			<< std::endl;
+			return ;
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cerr
+			<< *this
+			<< " cannot execute " << form
+			<<" , because their grade is too low."
+			<< std::endl;
+			return ;
+	}
+	std::cout << *this << " successfully executes " << form << std::endl;
+}
+
 const char			*Bureaucrat::GradeTooLowException::what(void) const throw()
 {
 	return ("Grade too low");

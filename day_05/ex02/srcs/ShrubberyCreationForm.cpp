@@ -147,6 +147,5 @@ void				ShrubberyCreationForm::execute(Bureaucrat const &bur) const
 		}
 		target_file << std::endl;
 		target_file.close();
-		std::cout << bur << " successfully executes " << *this << std::endl;
 	}
 }

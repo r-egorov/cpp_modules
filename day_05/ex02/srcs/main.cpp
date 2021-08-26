@@ -16,39 +16,22 @@ int		main(void)
 	 * TEST FOR NOT SIGNED FORM
 	*/
 
-	try
-	{
-		shrub.execute(thomas);
-	}
-	catch (Form::NotSignedException &e)
-	{
-		std::cerr
-			<< thomas << " can't execute " << shrub 
-			<< ", the form is not signed!" << std::endl;
-	}
+	thomas.executeForm(shrub);
 
 	/*
 	 * TEST FOR TOO LOW GRADE TO EXECUTE
 	*/
 	jerry.signForm(shrub);
 
-	try
-	{
-		shrub.execute(thomas);
-	}
-	catch (Form::GradeTooLowException &e)
-	{
-		std::cerr
-			<< thomas << " can't execute " << shrub 
-			<< ", grade is too low!" << std::endl;
-	}
+	thomas.executeForm(shrub);
 
 	/*
 	 * TEST FOR MANAGING FILES' ERRORS
 	*/
 	try
 	{
-		shrub.execute(jerry);
+		thomas.executeForm(shrub);
+		jerry.executeForm(shrub);
 	}
 	catch (ShrubberyCreationForm::FailedToOpenException &e)
 	{
