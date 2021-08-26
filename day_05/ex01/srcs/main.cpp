@@ -26,7 +26,7 @@ int		main(void)
 	}
 	catch (Bureaucrat::GradeTooLowException &e)
 	{
-		std::cerr << "Grade is too low!" << std::endl;
+		std::cerr << "Grade is too low!" << std::endl << std::endl;
 	}
 
 	/*
@@ -43,7 +43,7 @@ int		main(void)
 	}
 	catch (Bureaucrat::GradeTooHighException &e)
 	{
-		std::cerr << "Grade is too high!" << std::endl;
+		std::cerr << "Grade is too high!" << std::endl << std::endl;
 	}
 
 	/*
