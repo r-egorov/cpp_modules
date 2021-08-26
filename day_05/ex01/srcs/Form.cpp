@@ -74,11 +74,20 @@ bool				Form::wasSigned(void) const
 
 void				Form::beSigned(Bureaucrat const &b)
 {
+	if (this->wasSigned())
+	{
+		throw AlreadySignedException();
+	}
 	if (b.getGrade() > this->signGrade)
 	{
 		throw GradeTooLowException();
 	}
 	this->isSigned = true;
+}
+
+const char			*Form::AlreadySignedException::what(void) const throw()
+{
+	return ("Already signed");
 }
 
 const char			*Form::GradeTooLowException::what(void) const throw()

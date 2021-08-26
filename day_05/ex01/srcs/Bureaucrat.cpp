@@ -66,6 +66,15 @@ void				Bureaucrat::signForm(Form &form)
 			<< std::endl;
 			return ;
 	}
+	catch (Form::AlreadySignedException &e)
+	{
+		std::cerr
+			<< *this
+			<< " cannot sign " << form
+			<<" , because it is already signed."
+			<< std::endl;
+			return ;
+	}
 	std::cout << *this << " signs " << form << std::endl;
 }
 

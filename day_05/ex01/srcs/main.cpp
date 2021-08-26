@@ -62,5 +62,8 @@ int		main(void)
 	thomas.signForm(b28);
 	std::cout << b28 << std::endl;
 
+	std::cout << "TRYING TO SIGN ALREADY SIGNED FORM" << std::endl;
+	thomas.signForm(b28);
+	std::cout << b28 << std::endl;
 	return (0);
 }
