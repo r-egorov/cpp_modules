@@ -73,13 +73,13 @@ void				Form::beSigned(Bureaucrat const &b)
 
 void				Form::execute(Bureaucrat const &executor) const
 {
-	if (!this->wasSigned())
-	{
-		throw NotSignedException();
-	}
 	if (executor.getGrade() > this->execGrade)
 	{
 		throw GradeTooLowException();
+	}
+	if (!this->wasSigned())
+	{
+		throw NotSignedException();
 	}
 }
 
@@ -106,7 +106,7 @@ const char			*Form::GradeTooHighException::what(void) const throw()
 std::ostream		&operator << (std::ostream &o, Form const &obj)
 {
 	o 
-		<< "Form " << obj.getName()
+		<< "<Form> " << obj.getName()
 		<< ", grade to sign: " << obj.getSignGrade()
 		<< ", grade to exectute: " << obj.getExecGrade()
 		<< ", signature status: " << obj.wasSigned();

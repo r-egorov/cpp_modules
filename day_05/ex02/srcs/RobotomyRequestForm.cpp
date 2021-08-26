@@ -31,12 +31,6 @@ RobotomyRequestForm	&RobotomyRequestForm::operator = (RobotomyRequestForm const 
 	return (*this);
 }
 
-const char			*RobotomyRequestForm::FailedToRobotomizeException::what(void)
-					const throw()
-{
-	return ("Failed to robotomize the target");
-}
-
 void				RobotomyRequestForm::execute(Bureaucrat const &bur) const
 {
 	Form::execute(bur);

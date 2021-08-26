@@ -24,11 +24,6 @@ class RobotomyRequestForm : public Form
 		RobotomyRequestForm	&operator = (RobotomyRequestForm const &obj);
 
 		void					execute(Bureaucrat const &bur) const;
-
-		class FailedToRobotomizeException : public std::exception
-		{
-			const char		*what(void) const throw();
-		};
 };
 
 #endif

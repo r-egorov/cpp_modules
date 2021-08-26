@@ -8,7 +8,9 @@ CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 
 INCLUDES		=	includes/
 
-SRCS			=	Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp main.cpp
+SRCS			=	Bureaucrat.cpp				Form.cpp \
+					ShrubberyCreationForm.cpp	RobotomyRequestForm.cpp \
+					PresidentialPardonForm.cpp	main.cpp
 OBJS			=	$(patsubst %.cpp,%.o,$(SRCS))
 
 OBJS			:=	$(addprefix $(OBJSDIR), $(OBJS))
