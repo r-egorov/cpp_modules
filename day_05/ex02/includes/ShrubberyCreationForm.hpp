@@ -16,7 +16,7 @@ class ShrubberyCreationForm : public Form
 
 	public:
 		ShrubberyCreationForm(void);
-		~ShrubberyCreationForm(void);
+		virtual ~ShrubberyCreationForm(void);
 		ShrubberyCreationForm(std::string target);
 		ShrubberyCreationForm(ShrubberyCreationForm const &obj);
 

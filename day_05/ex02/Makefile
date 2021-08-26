@@ -8,7 +8,7 @@ CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 
 INCLUDES		=	includes/
 
-SRCS			=	Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp main.cpp
+SRCS			=	Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp main.cpp
 OBJS			=	$(patsubst %.cpp,%.o,$(SRCS))
 
 OBJS			:=	$(addprefix $(OBJSDIR), $(OBJS))
@@ -33,7 +33,7 @@ clean:
 					rm -rf $(OBJSDIR)
 
 fclean:				clean
-					rm -f $(NAME)
+					rm -f $(NAME) home_shrubbery
 
 re:					fclean all
 

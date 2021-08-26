@@ -16,7 +16,7 @@ class Form
 		int			const	execGrade;
 	public:
 		Form(void);
-		~Form(void);
+		virtual ~Form(void);
 		Form(std::string name, int const signGrade, int const execGrade);
 		Form(Form const &obj);
 

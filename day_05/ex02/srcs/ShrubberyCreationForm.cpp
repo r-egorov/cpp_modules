@@ -108,6 +108,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator = (ShrubberyCreationForm 
 	if (this == &obj)
 		return (*this);
 	new(this)ShrubberyCreationForm(obj.target);
+	Form::operator = (obj);
 	return (*this);
 }
 
