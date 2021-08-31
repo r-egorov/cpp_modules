@@ -1,8 +1,9 @@
 #include "ClapTrap.hpp"
 
+const std::string	ClapTrap::type = "ClapTrap";
+
 ClapTrap::ClapTrap(void) : name("Claptrap")
 {
-	this->type = "ClapTrap";
 	this->hp = 10;
 	this->ep = 10;
 	this->atk_dmg = 0;
@@ -15,7 +16,6 @@ ClapTrap::ClapTrap(void) : name("Claptrap")
 
 ClapTrap::ClapTrap(std::string name) : name(name)
 {
-	this->type = "ClapTrap";
 	this->hp = 10;
 	this->ep = 10;
 	this->atk_dmg = 0;
@@ -29,7 +29,6 @@ ClapTrap::ClapTrap(std::string name) : name(name)
 
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
-	this->type = "ClapTrap";
 	std::cout << "A "
 	       << this->type
 	       << " copy constructor was called" << std::endl;
