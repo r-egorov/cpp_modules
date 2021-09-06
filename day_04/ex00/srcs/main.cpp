@@ -16,11 +16,12 @@ int	main(void)
 	j->makeSound();
 	meta->makeSound();
 
-	const WrongAnimal*	wr_animal = new WrongAnimal();
+	const WrongAnimal*	wr_animal = new WrongCat();
 	const WrongCat*		wr_cat = new WrongCat();
 
-	std::cout << wr_cat->getType() << std::endl;
+	std::cout << "<" << wr_animal->getType() << ">" << std::endl;
 	wr_animal->makeSound();
+	std::cout << "<" << wr_cat->getType() << ">" << std::endl;
 	wr_cat->makeSound();
 
 	delete wr_animal;

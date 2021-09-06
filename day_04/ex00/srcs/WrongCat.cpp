@@ -23,3 +23,8 @@ WrongCat	&WrongCat::operator=(const WrongCat &obj)
 	this->type = obj.type;
 	return (*this);
 }
+
+void		WrongCat::makeSound(void) const
+{
+	std::cout << "\"Man, I am not a cat\", says the WrongCat." << std::endl;
+}
