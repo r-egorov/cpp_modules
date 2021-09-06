@@ -26,14 +26,17 @@ int		main(void)
 	tom->show_inv();
 	tom->use(0, *andy);
 
-	Character	*tom_copy = tom;
+	Character	*tom_copy = new Character(*tom);
 
+	std::cout << "Original Tom: " << tom << std::endl;
+	std::cout << "Copy Tom: " << tom_copy << std::endl;
 	tom_copy->equip(cure);
 	tom->equip(source->createMateria("ice"));
 	tom->show_inv();
 	tom_copy->use(1, *andy);
 
 	delete tom;
+	delete tom_copy;
 	delete andy;
 	delete source;
 	return (0);
