@@ -12,7 +12,7 @@ class Dog : public Animal
 		Brain	*brain;
 	public:
 		Dog(void);
-		~Dog(void);
+		virtual ~Dog(void);
 		Dog(const Dog &obj);
 		Dog &operator=(const Dog &obj);
 		

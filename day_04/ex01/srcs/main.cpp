@@ -29,9 +29,12 @@ int	main(void)
 
 	Dog		dog_stack1;
 	Dog		dog_stack2 = dog_stack1;
+	Dog		dog_stack3(dog_stack2);
+
 	std::cout << "Testing deep copies" << std::endl;
 	std::cout << "Dog1: " << dog_stack1.getBrain() << std::endl;
 	std::cout << "Dog2: " << dog_stack2.getBrain() << std::endl;
+	std::cout << "Dog3: " << dog_stack3.getBrain() << std::endl;
 
 	std::string	*ideas1 = dog_stack1.getBrain()->getIdeas();
 	std::string	*ideas2 = dog_stack2.getBrain()->getIdeas();
