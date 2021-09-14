@@ -1,12 +1,12 @@
 NAME			=	templates
 
-SRCSDIR			=	./
+SRCSDIR			=	srcs/
 OBJSDIR			=	objs/
 
 CC				=	clang++
 CFLAGS			=	-Wall -Wextra -Werror -std=c++98
 
-INCLUDES		=	./
+INCLUDES		=	includes/
 
 SRCS			=	main.cpp
 OBJS			=	$(patsubst %.cpp,%.o,$(SRCS))
