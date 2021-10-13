@@ -9,7 +9,6 @@ int		main(int argc, char **argv)
 	}
 
 	Converter		conv;
-	std::string		to_be_parsed(argv[1]);
 
-	conv.convert(to_be_parsed);
+	conv.convert(argv[1]);
 }

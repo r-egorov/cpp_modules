@@ -1,6 +1,7 @@
 #ifndef CONVERTER_HPP
 # define CONVERTER_HPP
 
+# include <stdlib.h>
 # include <string>
 # include <iostream>
 # include <iomanip>
@@ -28,8 +29,8 @@ class Converter
 
 		Converter		&operator = (Converter const &obj);
 
-		void			parse(std::string const &s);
-		void			convert(std::string const &s);
+		void			parse(const char *s);
+		void			convert(const char *s);
 		void			toChar(void);
 		void			toInt(void);
 		void			toFloat(void);

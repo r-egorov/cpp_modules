@@ -32,13 +32,15 @@ const char		*Converter::MoreThanOneDotException::what(void) const throw()
 	return ("More than one dot in the literal");
 }
 
-void			Converter::parse(std::string const &s)
+void			Converter::parse(const char *to_be_parsed)
 {
+	std::string		s(to_be_parsed);
+
 	if (s == "inf" || s == "+inf" || s == "+inff")
 		this->infPos = true;
 	else if (s == "-inf" || s == "-inff")
 		this->infNeg = true;
-	else if (s == "nan")
+	else if (s == "nan" || s == "nanf")
 		this->nan = true;
 	else
 	{
@@ -129,15 +131,8 @@ void			Converter::toDouble(void)
 	std::cout  << "double: " << std::fixed << std::setprecision(1) << this->dvalue << std::endl;
 }
 
-void			Converter::convert(std::string const &s)
+void			Converter::convert(const char *s)
 {
-	/*
-	std::cout << "String: |" << s << "|" << std::endl;
-	std::cout << s.rfind('-') <<std::endl;
-	std::cout << s.rfind('+') <<std::endl;
-	std::cout << s.length() << std::endl;
-	*/
-
 	try
 	{
 		this->parse(s);
@@ -150,7 +145,7 @@ void			Converter::convert(std::string const &s)
 
 	try
 	{
-		this->dvalue = std::stod(s);
+		this->dvalue = std::atof(s);
 	}
 	catch (const std::invalid_argument &e)
 	{
