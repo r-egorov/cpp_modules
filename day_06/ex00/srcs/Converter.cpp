@@ -56,7 +56,7 @@ void			Converter::parse(const char *to_be_parsed)
 
 		while (it != s.end())
 		{
-			if (!(*it > '0' && *it < '9') && (*it != 'f')
+			if (!(*it >= '0' && *it <= '9') && (*it != 'f')
 					&& (*it != '-') && (*it != '+') && (*it != '.'))
 				throw WrongLiteralException();
 			it++;
