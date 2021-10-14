@@ -41,7 +41,7 @@ void			Converter::parse(const char *to_be_parsed)
 {
 	std::string		s(to_be_parsed);
 
-	if (s == "inf" || s == "+inf" || s == "+inff")
+	if (s == "inf" || s == "+inf" || s == "inff" || s == "+inff")
 		this->infPos = true;
 	else if (s == "-inf" || s == "-inff")
 		this->infNeg = true;
