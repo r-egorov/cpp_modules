@@ -37,6 +37,11 @@ const char		*Converter::WrongLiteralException::what(void) const throw()
 	return ("Invalid symbols in the literal");
 }
 
+const char		*Converter::WrongFPlacementException::what(void) const throw()
+{
+	return ("Invalid placement of \'f\' symbol in the literal");
+}
+
 void			Converter::parse(const char *to_be_parsed)
 {
 	std::string		s(to_be_parsed);
@@ -58,7 +63,9 @@ void			Converter::parse(const char *to_be_parsed)
 		{
 			if (!(*it >= '0' && *it <= '9') && (*it != 'f')
 					&& (*it != '-') && (*it != '+') && (*it != '.'))
+			{
 				throw WrongLiteralException();
+			}
 			it++;
 		}
 
@@ -66,7 +73,16 @@ void			Converter::parse(const char *to_be_parsed)
 
 		if ((s.find('-') != std::string::npos && s.rfind('-') != 0)
 				|| (s.find('+') != std::string::npos && s.rfind('+') != 0))
+		{
 			throw WrongSignException();
+		}
+
+		std::string::size_type	f = s.find('f');
+
+		if ((f != std::string::npos) && ((f != s.length() - 1) || s[f - 1] == '.'))
+		{
+			throw WrongFPlacementException();
+		}
 
 		std::string::size_type	dot = s.find('.');
 

@@ -51,6 +51,11 @@ class Converter
 			const char	*what(void) const throw();
 		};
 
+		class WrongFPlacementException : public std::exception
+		{
+			const char	*what(void) const throw();
+		};
+
 		class WrongLiteralException : public std::exception
 		{
 			const char	*what(void) const throw();
