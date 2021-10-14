@@ -4,7 +4,7 @@ int		main(int argc, char **argv)
 {
 	if (argc != 2)
 	{
-		std::cerr << "[ERROR] The program takes one argument" << std::endl;
+		std::cerr << "ERROR: The program takes one argument" << std::endl;
 		return (1);
 	}
 

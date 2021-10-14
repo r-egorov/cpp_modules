@@ -32,6 +32,11 @@ const char		*Converter::MoreThanOneDotException::what(void) const throw()
 	return ("More than one dot in the literal");
 }
 
+const char		*Converter::WrongLiteralException::what(void) const throw()
+{
+	return ("Invalid symbols in the literal");
+}
+
 void			Converter::parse(const char *to_be_parsed)
 {
 	std::string		s(to_be_parsed);
@@ -44,8 +49,23 @@ void			Converter::parse(const char *to_be_parsed)
 		this->nan = true;
 	else
 	{
+		std::string::iterator	it;
+		it = s.begin();
+
+	   	// Checking for invalid symbols
+
+		while (it != s.end())
+		{
+			if (!(*it > '0' && *it < '9') && (*it != 'f')
+					&& (*it != '-') && (*it != '+') && (*it != '.'))
+				throw WrongLiteralException();
+			it++;
+		}
+
+		// Checking for double '+' or '-'
+
 		if ((s.find('-') != std::string::npos && s.rfind('-') != 0)
-				|| (s.find('+') != std::string::npos && s.rfind('+') != 0)) // Checking for double '+' or '-'
+				|| (s.find('+') != std::string::npos && s.rfind('+') != 0))
 			throw WrongSignException();
 
 		std::string::size_type	dot = s.find('.');
