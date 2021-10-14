@@ -71,24 +71,30 @@ void	identify(Base *p)
 void	identify(Base &p)
 {
 	std::cout << "[Identifier(rfr)]: ";
-	A	*a_ptr = dynamic_cast<A *>(&p);
-	if (a_ptr)
+	try
 	{
+		A	&a_ref = dynamic_cast<A &>(p);
+		(void)a_ref;
 		std::cout << "A" << std::endl;
 		return ;
 	}
+	catch (std::bad_cast &e) {}
 
-	B	*b_ptr = dynamic_cast<B *>(&p);
-	if (b_ptr)
+	try
 	{
+		B	&b_ref = dynamic_cast<B &>(p);
+		(void)b_ref;
 		std::cout << "B" << std::endl;
 		return ;
 	}
+	catch (std::bad_cast &e) {}
 
-	C	*c_ptr = dynamic_cast<C *>(&p);
-	if (c_ptr)
+	try
 	{
+		C	&c_ref = dynamic_cast<C &>(p);
+		(void)c_ref;
 		std::cout << "C" << std::endl;
 		return ;
 	}
+	catch (std::bad_cast &e) {}
 }
