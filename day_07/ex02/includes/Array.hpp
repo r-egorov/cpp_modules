@@ -39,7 +39,7 @@ class Array
 
 		T		&operator[] (const int index)
 		{
-			if ((index < 0) || (index > static_cast<int>(_size)))
+			if ((index < 0) || (index > static_cast<int>(_size) - 1))
 				throw OutOfLimitsException();
 			return (this->arr[index]);
 		}
