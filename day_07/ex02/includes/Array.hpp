@@ -26,6 +26,8 @@ class Array
 
 		Array	&operator = (Array const &obj)
 		{
+			if (this == &obj)
+				return (*this);
 			if (this->arr)
 				delete [] (this->arr);
 			this->arr = new T[obj.size()]();
@@ -35,6 +37,7 @@ class Array
 			{
 				arr[i] = obj.arr[i];
 			}
+			return (*this);
 		}
 
 		T		&operator[] (const int index)
