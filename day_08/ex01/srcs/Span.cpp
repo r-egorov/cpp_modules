@@ -55,6 +55,16 @@ void	Span::addNumber(int num)
 void	Span::sort(void)
 {
 	std::sort(this->nums.begin(), this->nums.end());
+	if (this->shortest)
+	{
+		delete this->shortest;
+		this->shortest = nullptr;
+	}
+	if (this->longest)
+	{
+		delete this->longest;
+		this->longest = nullptr;
+	}
 	this->sorted = true;
 }
 
@@ -72,6 +82,9 @@ bool 	Span::canSpan(void)
 int	Span::shortestSpan(void)
 {
 	int	result;
+
+	if (this->sorted && this->shortest)
+		return (*this->shortest);
 
 	if (!this->canSpan())
 		throw NotAbleToSpan();
@@ -96,6 +109,9 @@ int	Span::longestSpan(void)
 {
 	int	result;
 
+	if (this->sorted && this->longest)
+		return (*this->longest);
+
 	if (!this->canSpan())
 		throw NotAbleToSpan();
 
@@ -105,6 +121,7 @@ int	Span::longestSpan(void)
 	if (this->longest)
 		delete this->longest;
 	this->longest = new int(result);
+
 	return (result);
 }
 

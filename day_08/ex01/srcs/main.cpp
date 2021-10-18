@@ -27,8 +27,15 @@ int	main(void)
 
 	sp.addNumber(10);
 	sp.addNumber(600);
+
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+
 	sp.addNumber(35);
 	sp.addNumber(-2344);
+
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
 
 	Span	sp_copy(sp);
 	try
