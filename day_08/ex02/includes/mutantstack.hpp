@@ -1,7 +1,8 @@
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
-#include <stack>
+# include <stack>
+# include <iostream>
 
 template< typename T >
 class MutantStack : public std::stack<T>
@@ -64,5 +65,33 @@ class MutantStack : public std::stack<T>
 			return (std::stack<T>::c.crend());
 		}
 };
+
+template< typename T >
+void	print_mstack(MutantStack<T> mstack, const char *stack_name)
+{
+	typename MutantStack< T >::iterator	it = mstack.begin();
+
+	std::cout << "===============\n" << stack_name << std::endl;
+
+	for (; it != mstack.end(); it++)
+	{
+		std::cout << *it << std::endl;
+	}
+	std::cout << "===============" << std::endl;
+}
+
+template< typename T >
+void	rprint_mstack(MutantStack<T> mstack, const char *stack_name)
+{
+	typename MutantStack< T >::reverse_iterator	it = mstack.rbegin();
+
+	std::cout << "===============\n" << stack_name << std::endl;
+
+	for (; it != mstack.rend(); it++)
+	{
+		std::cout << *it << std::endl;
+	}
+	std::cout << "===============" << std::endl;
+}
 
 #endif
